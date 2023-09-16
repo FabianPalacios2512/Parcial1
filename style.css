@@ -11,7 +11,7 @@ body {
 }
 
 body {
-    background-image: url('image/blanco.jpg');
+    
     background-size: 2150px auto; /* Limita la anchura al 80% del ancho de la ventana gráfica */
     background-position: center;
 }
@@ -43,10 +43,16 @@ body {
 
 /* Estilos para el menú de navegación */
 nav {
-    
-    color: #060606;
-    padding: 0 0;
+    position: fixed; /* Hace que el nav sea fijo */
+    top: 0; /* Lo coloca en la parte superior de la ventana */
+    left: 0; /* Lo coloca en el lado izquierdo de la ventana */
+    right: 0; /* Lo coloca en el lado derecho de la ventana */
+    background-color: #f4ddef;
+    padding: 0;
+    z-index: 1000; /* Asegura que el nav esté en la parte superior de otros elementos */
 }
+
+/* Resto de tu código CSS aquí */
 
 .principal {
     margin-top: 30px;
@@ -55,9 +61,7 @@ nav {
     align-items: center;
     margin-bottom: 10px;
 }
-.principal h1{
-    font-size: 40px;
-}
+
 
 .logo-container {
     display: flex;
