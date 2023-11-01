@@ -41,16 +41,6 @@ body {
 }
 
 
-/* Estilos para el menú de navegación */
-nav {
-    position: fixed; /* Hace que el nav sea fijo */
-    top: 0; /* Lo coloca en la parte superior de la ventana */
-    left: 0; /* Lo coloca en el lado izquierdo de la ventana */
-    right: 0; /* Lo coloca en el lado derecho de la ventana */
-    background-color: #f4ddef;
-    padding: 0;
-    z-index: 1000; /* Asegura que el nav esté en la parte superior de otros elementos */
-}
 
 /* Resto de tu código CSS aquí */
 
@@ -78,19 +68,7 @@ h1 {
     margin-left: 10px; /* Añade margen izquierdo para separar el logo del H1 */
 }
 
-.nav-menu {
-    list-style: none;
-    display: flex;
-}
 
-.nav-menu li {
-    margin-right: 20px;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: #fff;
-}
 
 .wrapper {
     display: flex;
@@ -156,23 +134,10 @@ h1 {
 section {
     padding: 20px;
     margin: 20px;
-    /* display: none;  Oculta todas las secciones por defecto */
+    
 }
 
-/* Mostrar la sección Home cuando su enlace está seleccionado 
-#home:target {
-    display: block;
-}*/
 
-/* Mostrar la sección Servicios cuando su enlace está seleccionado 
-#servicios:target {
-    display: block;
-}*/
-
-/* Mostrar la sección Colaboradores cuando su enlace está seleccionado 
-#colaboradores:target {
-    display: block;
-}*/
 
 body {
     font-family: Georgia, serif;
@@ -253,23 +218,25 @@ body {
     
     display: flex;
     flex-wrap: wrap;
-    padding-left: 90px;
-    margin-right: 30px;
-    margin-bottom: 200vh;
+    /* margin-bottom: 200vh; */
     text-align: center; /* Centra el contenido horizontalmente */
+    height: 180vh;
+    width: 6100px;
+    /* background-color: #25d366; */
+    margin-left: 300px;
 }
 
 #servicios h1 {
     display: flex;
-    padding-left: 30vw;
+    padding-left: 20vw;
     font-size: 40px; /* Ajusta el tamaño del título "Servicios" como desees */
     width: 100%; /* Asegura que ocupe todo el ancho disponible */
     margin-bottom: 20px; /* Agrega espacio inferior para separar el título de los divs */
+    
 }
 
 .container {
     
-    height: 500px;
     display: flex;
     flex-wrap: wrap; /* Allow cards to wrap to the next row */
     justify-content: flex-start; /* Align cards to the left */
@@ -403,7 +370,8 @@ color: #fff;
 }
 
 #colaboradores{
-    
+   
+    height: 100vh;
     margin-left: 90px;
     padding-bottom: 190px;
     flex-wrap: wrap;
@@ -511,8 +479,6 @@ color: #fff;
 }
 
 
-
-
 .wrapper img{
     height: 17px;
 }
@@ -527,130 +493,243 @@ color: #fff;
  
 }
 
-button {
- 
- display: block;
- position: relative;
- margin: 0.5em 0;
- padding: 0.8em 2.2em;
- cursor: pointer;
- background: #FFFFFF;
- border: none;
- border-radius: 0.4em;
- text-transform: uppercase;
- font-size: 19px;
- font-family: "Work Sans", sans-serif;
- font-weight: 500;
- letter-spacing: 0.04em;
- mix-blend-mode: color-dodge;
- perspective: 500px;
- transform-style: preserve-3d;
+
+
+
+
+#servicios, #colaboradores {
+    display: none;
 }
 
-button:before, button:after {
- --z: 0px;
- position: absolute;
- top: 0;
- left: 0;
- display: block;
- content: "";
- width: 100%;
- height: 100%;
- opacity: 0;
- mix-blend-mode: inherit;
- border-radius: inherit;
- transform-style: preserve-3d;
- transform: translate3d(calc(var(--z) * 0px), calc(var(--z) * 0px), calc(var(--z) * 0px));
+
+
+/* Estilos para los botones de mostrar servicios */
+.boton-mostrar {
+    background-color: #0077b6;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-button span {
- mix-blend-mode: none;
- display: block;
+/* Estilos para los botones de mostrar colaboradores */
+.boton-mostrar-colaboradores {
+    background-color: #e63946;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-button:after {
- background-color: #5D00FF;
+/* Estilos para los botones cuando se les pasa el mouse por encima */
+.boton-mostrar:hover,
+.boton-mostrar-colaboradores:hover {
+    background-color: #005f99;
 }
 
-button:before {
- background-color: #FF1731;
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-button:hover {
- background-color: #FFF65B;
- transition: background 0.3s 0.1s;
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-button:hover:before {
- --z: 0.04;
- animation: translateWobble 2.2s ease forwards;
+/* Estilos para los botones del modal */
+#modal-aceptar,
+#modal-cancelar {
+    margin: 5px;
 }
 
-button:hover:after {
- --z: -0.06;
- animation: translateWobble 2.2s ease forwards;
+
+
+
+/* modal.css */
+
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+
+  /* Estilo de las tarjetas */
+.card {
+    width: 30%; 
+    margin: 1%; 
+    float: left; 
 }
 
-@keyframes rotateAngle {
- 0% {
-  transform: rotateY(0deg) rotateX(10deg);
-  -webkit-animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
-  animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
- }
-
- 25% {
-  transform: rotateY(20deg) rotateX(10deg);
- }
-
- 50% {
-  transform: rotateY(0deg) rotateX(10deg);
-  -webkit-animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
-  animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
- }
-
- 75% {
-  transform: rotateY(-20deg) rotateX(10deg);
- }
-
- 100% {
-  transform: rotateY(0deg) rotateX(10deg);
- }
+/* Ajusta el ancho del contenedor de las tarjetas para evitar que se desborde */
+#servicios {
+    max-width: 60%; /* O el valor que desees */
 }
 
-@keyframes translateWobble {
- 0% {
-  opacity: 0;
-  transform: translate3d(calc(var(--z) * 0px), calc(var(--z) * 0px), calc(var(--z) * 0px));
- }
+/* Estilo del modal */
+#myModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
- 16% {
-  transform: translate3d(calc(var(--z) * 160px), calc(var(--z) * 160px), calc(var(--z) * 160px));
- }
+/* Estilo del contenido del modal */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
 
- 28% {
-  opacity: 1;
-  transform: translate3d(calc(var(--z) * 70px), calc(var(--z) * 70px), calc(var(--z) * 70px));
- }
+/* Estilo para el texto de pregunta en el modal */
+.modal-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
 
- 44% {
-  transform: translate3d(calc(var(--z) * 130px), calc(var(--z) * 130px), calc(var(--z) * 130px));
- }
+/* Estilo para los botones Aceptar y Cancelar */
+#accept, #cancel {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
 
- 59% {
-  transform: translate3d(calc(var(--z) * 85px), calc(var(--z) * 85px), calc(var(--z) * 85px));
- }
+/* Estilo para el botón Aceptar */
+#accept {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: none;
+}
 
- 73% {
-  transform: translate3d(calc(var(--z) * 110px), calc(var(--z) * 110px), calc(var(--z) * 110px));
- }
+/* Estilo para el botón Cancelar */
+#cancel {
+    background-color: #f44336; /* Rojo */
+    color: white;
+    border: none;
+}
 
- 88% {
-  opacity: 1;
-  transform: translate3d(calc(var(--z) * 90px), calc(var(--z) * 90px), calc(var(--z) * 90px));
- }
 
- 100% {
-  opacity: 1;
-  transform: translate3d(calc(var(--z) * 100px), calc(var(--z) * 100px), calc(var(--z) * 100px));
- }
+
+
+
+
+
+nav {
+    display: flex;
+    background-color: #8f919f;
+    color: white;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+nav a, nav button {
+    text-decoration: none;
+    color: #333;
+    margin: 0 20px;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+button#verMasButton {
+    background-color: #8f919f;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+button#homebutton {
+    background-color: #8f919f;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+button#verMasButton:hover {
+    background-color: #f01d1d;
+}
+
+button#homebutton:hover {
+    background-color: #f01d1d;
+}
+
+.scroll-down-arrow {
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #ff69b4;
+    margin: 10px auto;
+}
+
+.naturafa {
+    display: flex;
+    margin-right: 4000px;
+    font-size: 50px;
+    justify-self: center;
+    margin-left: 600px;
+}
+
+.logo {
+    margin-right: 10px;
+    border-radius: 50px;
+    height: 100px;
+}
+
+.scroll-to-top-button {
+    position: fixed;
+    bottom: 45px;
+    right: 120px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    z-index: 101;
+    text-decoration: none;
+}
+
+.scroll-to-top-button:hover {
+    background-color: #0056b3;
 }
