@@ -220,9 +220,9 @@ body {
     flex-wrap: wrap;
     /* margin-bottom: 200vh; */
     text-align: center; /* Centra el contenido horizontalmente */
-    height: 180vh;
+    height: 240vh;
     width: 6100px;
-    /* background-color: #25d366; */
+     
     margin-left: 300px;
 }
 
@@ -699,11 +699,12 @@ button#homebutton:hover {
 }
 
 .naturafa {
-    display: flex;
-    margin-right: 4000px;
+    
+    
     font-size: 50px;
     justify-self: center;
-    margin-left: 600px;
+    margin-left: 30%;
+    padding: 10px 0;
 }
 
 .logo {
